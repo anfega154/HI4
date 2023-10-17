@@ -22,69 +22,70 @@ const UserProfile = () => {
       [name]: value,
     });
   };
-
   return (
-    <div className="absolute inset-y-0 right-0 w-4/5 bg-blue-200 min-h-screen">
-      <div className="bg-white rounded shadow-lg p-4">
-        <div className="text-center">
-          <img
-            src={userData.profileImage}
-            alt="Foto de perfil"
-            className="rounded-full mx-auto h-20 w-20"
-          />
-          {isEditing && (
-            <input
-              type="file"
-              accept="image/*"
-              name="profileImage"
-              onChange={handleInputChange}
-              className="mt-2"
+    /* absolute inset-y-0 right-0 w-4/5 bg-gray-900  min-h-screen */
+    <div className="flex justify-center min-h-screen">
+      <div className="absolute inset-y-0 right-0 w-4/5 bg-gray-900">
+        <div className="bg-white rounded shadow-lg p-4">
+          <div className="text-center">
+            <img
+              src={userData.profileImage}
+              alt="Foto de perfil"
+              className="rounded-full mx-auto h-20 w-20"
             />
-          )}
+            {isEditing && (
+              <input
+                type="file"
+                accept="image/*"
+                name="profileImage"
+                onChange={handleInputChange}
+                className="mt-2"
+              />
+            )}
+          </div>
+          <div className="mt-4 text-center">
+            {isEditing ? (
+              <input
+                type="text"
+                name="name"
+                value={userData.name}
+                onChange={handleInputChange}
+                className="border rounded w-full p-2"
+              />
+            ) : (
+              <h2 className="text-xl font-bold">{userData.name}</h2>
+            )}
+            <p className="text-gray-600">{userData.email}</p>
+            <p className="text-gray-600">{userData.username}</p>
+          </div>
+          <div className="text-center mt-4">
+            <button
+              onClick={handleEditClick}
+              className=" bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              {isEditing ? 'Guardar' : 'Editar Perfil'}
+            </button>
+          </div>
+          <div className="flex justify-center space-x-4">
+            <div className="p-4">
+              <h3 className="text-lg font-semibold">Seguidores:</h3>
+              <ul className="list-disc pl-5">
+                {followers.map((follower, index) => (
+                  <li key={index} className="mt-2">{follower}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-semibold">Siguiendo:</h3>
+              <ul className="list-disc pl-5 ">
+                {following.map((followed, index) => (
+                  <li key={index} className="mt-2">{followed}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="mt-4">
-          {isEditing ? (
-            <input
-              type="text"
-              name="name"
-              value={userData.name}
-              onChange={handleInputChange}
-              className="border rounded w-full p-2"
-            />
-          ) : (
-            <h2 className="text-xl font-bold">{userData.name}</h2>
-          )}
-          <p className="text-gray-600">{userData.email}</p>
-          <p className="text-gray-600">{userData.username}</p>
-        </div>
-        <div className="text-center mt-4">
-          <button
-            onClick={handleEditClick}
-            className="bg-blue-500 text-white p-2 rounded hover-bg-blue-600"
-          >
-            {isEditing ? 'Guardar' : 'Editar Perfil'}
-          </button>
-        </div>
-        <div className="flex space-x-4">
-      <div className="mt-4 p-6">
-        <h3 className="text-lg font-semibold">Seguidores:</h3>
-        <ul className="list-disc pl-5">
-          {followers.map((follower, index) => (
-            <li key={index} className="mt-2">{follower}</li>
-          ))}
-        </ul>
       </div>
-      <div className="mt-4 p-6">
-        <h3 className="text-lg font-semibold">Siguiendo:</h3>
-        <ul className="list-disc pl-5">
-          {following.map((followed, index) => (
-            <li key={index} className="mt-2">{followed}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-      </div>
-      
     </div>
   );
 };

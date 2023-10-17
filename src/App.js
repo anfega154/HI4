@@ -18,7 +18,6 @@ function App() {
           <Route path="/" element={
             <Layout>
               <Index />
-              <Logo />
             </Layout>
           } />
           <Route path="/register" element={

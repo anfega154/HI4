@@ -37,7 +37,7 @@ function Index() {
                 alert('Correo o usuario incorrecto');
             } else {
                 navigate('/home');
-                dispatch({ type: "LOGIN", payload: { iduser:existingEmail[0].id } });
+                dispatch({ type: "LOGIN", payload: { iduser: existingEmail[0].id } });
             }
         } catch (error) {
             alert('Error al interactuar con Supabase: ' + error.message);
@@ -45,43 +45,48 @@ function Index() {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen w-5/5 bg-blue-200 rounded-lg">
-            <div className="bg-white p-8 rounded-lg shadow-md w-96">
-                <h2 className="text-3xl font-semibold text-center mb-4">Iniciar sesión</h2>
-                <form className="bg-white shadow-md rounded px-26 pt-10 pb-7 mb-4" onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder="Correo electrónico"
-                        className="w-full p-2 border rounded mb-2"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Contraseña"
-                        className="w-full p-2 border rounded mb-4"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                    <button
-                        className="w-full bg-blue-400 text-white p-2 rounded hover:bg-blue-500 mb-2"
-                        type="submit"
-                    >
-                        Iniciar sesión
-                    </button>
-
-                    <button className="w-full bg-gray-400 text-white p-2 rounded hover:bg-gray-600">
-                        <Link to="/register">Registrarse</Link>
-                    </button>
-                </form>
-                <a href="/" className="text-blue-500 hover:underline mt-4 block">
-                    Olvidaste tu Contraseña?
-                </a>
+        <div className="h-screen flex bg-black">
+            <div className="w-1/2 flex justify-center items-center">
+                <div className="text-white text-center">
+                    <h2 className="text-4xl font-bold">HI 4</h2>
+                    <p>Conecta con los que mas quieres.</p>
+                </div>
             </div>
+            <div className="w-1/2 flex justify-center items-center">
+                <div className="bg-white p-8 rounded-lg shadow-md w-96">
+                    <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Iniciar sesión</h2>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name="email"
+                            placeholder="Correo electrónico"
+                            className="w-full p-2 border rounded mb-2"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Contraseña"
+                            className="w-full p-2 border rounded mb-4"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                        <button className="w-full mb-2 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Iniciar sesión
+                        </button>
+                        <button  className="w-full mb-2  bg-gray-400 text-white font-bold py-2 px-4 rounded hover:bg-gray-600">
+                            <Link to="/register">Registrarse</Link>
+                        </button>
+                    </form>
+                    <a href="/" className="text-blue-500 hover:underline mt-2 block">
+                        Olvidaste tu Contraseña?
+                    </a>
+                </div>
+            </div>
+
         </div>
     );
 }

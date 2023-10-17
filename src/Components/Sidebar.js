@@ -4,24 +4,24 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <div className="h-screen w-1/5 bg-blue-100 text-black p-8 flex flex-col rounded-md">
+    <div className="h-screen w-1/5 bg-gray-900 text-white p-8 flex flex-col rounded-md">
       <div className="text-2xl mb-4">✘</div>
       <ul className="space-y-4">
         <li className="flex items-center">
-          <FaHome className="mr-2" />
-          <Link to="/home">Inicio</Link>
+          <FaHome className="text-white mr-3" />
+          <Link to="/home" className="text-white hover:underline">Inicio</Link>
         </li>
         <li className="flex items-center">
-          <FaUser className="mr-2" />
-          <Link to="/profile">Perfil</Link>
+          <FaUser className="text-white mr-3" />
+          <Link to="/profile" className="text-white hover:underline">Perfil</Link>
         </li>
         <li className="flex items-center">
-          <FaCog className="mr-2" />
-          <Link to="/configuracion">Configuración</Link>
+          <FaCog className="text-white mr-3" />
+          <Link to="/configuracion" className="text-white hover:underline">Configuración</Link>
         </li>
         <li className="flex items-center">
-        <FaCog className="mr-2" />
-          <Link to="/">Cerrar sesión</Link>
+          <FaCog className="text-white mr-3" />
+          <Link to="/" className="text-white hover:underline">Cerrar sesión</Link>
         </li>
       </ul>
     </div>
